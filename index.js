@@ -17,6 +17,7 @@ import {connectToMongoDB} from './src/config/mongodb.js';
 import UserController from './src/features/user/user.controller.js';
 import OrderRouter from './src/features/order/order.routes.js';
 import { connectUsingMongoose } from './src/config/mongoose.js';
+import LikeRouter from './src/features/like/like.router.js';
 
 const server = express();
 
@@ -55,6 +56,7 @@ server.use('/api/products', jwtAuth, ProductRouter);
 server.use('/api/users', UserRouter);
 server.use('/api/cartItems',jwtAuth,cartRouter);
 server.use('/api/orders',jwtAuth,OrderRouter);
+server.use('/api/likes',jwtAuth,LikeRouter);
 
 // Application level error handler
 server.use((err,req,res,next)=>{

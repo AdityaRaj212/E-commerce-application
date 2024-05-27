@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { UserSchema } from "./user.schema.js";
 import applicationError from "../../error-handler/applicationError.js";
 
-const UserModel = mongoose.model('users',UserSchema);
+const UserModel = mongoose.model('user',UserSchema);
 
 export default class UserRepository{
     async signUp(user){
