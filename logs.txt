@@ -151,3 +151,5 @@
 {"level":"info","message":"Sun May 26 2024 23:23:01 GMT+0530 (India Standard Time) - /api/rate - {\"productId\":\"66537621f1e5d3ca480f24a5\",\"rating\":4}","service":"request-logging"}
 {"level":"info","message":"Sun May 26 2024 23:23:14 GMT+0530 (India Standard Time) - /api/products/rate - {\"productId\":\"66537621f1e5d3ca480f24a5\",\"rating\":4}","service":"request-logging"}
 {"level":"info","message":"Sun May 26 2024 23:25:09 GMT+0530 (India Standard Time) - /api/products/rate - {\"productId\":\"66537621f1e5d3ca480f24a5\",\"rating\":4}","service":"request-logging"}
+{"level":"info","message":"Mon May 27 2024 10:14:30 GMT+0530 (India Standard Time) - /api/users/signin - {\"email\":\"seller1@email.com\",\"password\":\"abcd\"}","service":"request-logging"}
+{"level":"info","message":"Mon May 27 2024 10:18:06 GMT+0530 (India Standard Time) - /api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"category\":\"66540b7fa30323e78f8325ed,66540b7fa30323e78f8325ec\",\"desc\":\"A book reader by Amazon\",\"inStock\":10}","service":"request-logging"}

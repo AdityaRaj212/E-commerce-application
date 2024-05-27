@@ -4,9 +4,11 @@ import applicationError from "../../error-handler/applicationError.js";
 import mongoose from "mongoose";
 import { ProductSchema } from "./product.schema.js";
 import { ReviewSchema } from "./review.schema.js";
+import { CategorySchema } from "./category.schema.js";
 
 const ProductModel = mongoose.model('product',ProductSchema);
 const ReviewModel = mongoose.model('review',ReviewSchema);
+const CategoryModel = mongoose.model('category',CategorySchema);
 
 export default class ProductRepository{
     constructor(){
@@ -27,10 +29,19 @@ export default class ProductRepository{
 
     async addProduct(product){
         try{
-            const db = getDB();
-            const collection = db.collection(this.collection);
-            await collection.insertOne(product);
-            return product;
+            product.categories = product.category.split(',').map(e=>e.trim());
+            console.log(product);
+            const newProduct = new ProductModel(product);
+            await newProduct.save();
+
+            await CategoryModel.updateMany(
+                {
+                    _id: {$in: product.categories}
+                },
+                {
+                    $push: {products: new ObjectId(newProduct._id)}
+                }
+            ) 
         }catch(err){
             console.log(err);
             throw new applicationError('Something went wrong!',500);
