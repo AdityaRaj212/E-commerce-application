@@ -19,7 +19,7 @@ const jwtAuth = (req,res,next)=>{
         res.status(401).send('Unauthorized');
     }
 
-    // 5. Call next middleware
+    // 5. Call next middleware in pipeline
     next();
 }
 
